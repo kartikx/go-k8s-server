@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-k8s-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-k8s-server
+  template:
+    metadata:
+      labels:
+        app: go-k8s-server
+    spec:
+      containers:
+        - name: go-k8s-server
+          image: kartikx/go-k8s-server:latest
+          ports:
+            - containerPort: 8080
