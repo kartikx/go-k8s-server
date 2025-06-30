@@ -4,11 +4,14 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+	"os"
 )
 
 func hello(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("Handing request ...")
 	time.Sleep(1 * time.Second)
-	fmt.Fprintln(w,"hello");
+	hostname, _ := os.Hostname()
+    fmt.Fprintf(w, "Hello from pod: %s\n", hostname)
 }
 
 func main() {
