@@ -1,7 +1,10 @@
-kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+# Specifies that we are defining a Cluster.
+kind: Cluster
+# Specifies the nodes in our cluster.
 nodes:
 - role: control-plane
+  # Expose port 30000 from the kind container. See note below.
   extraPortMappings:
   - containerPort: 30000
     hostPort: 8080

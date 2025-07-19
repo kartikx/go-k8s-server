@@ -1,3 +1,3 @@
-module go-k8s-server
+module go-server
 
 go 1.23.0

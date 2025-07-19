@@ -13,5 +13,6 @@ func hello(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/", hello)
+	fmt.Println("Server is listening on :8080")
 	http.ListenAndServe(":8080", nil)
 }

@@ -3,13 +3,11 @@ kind: Service # Specifies that we are defining a Service
 metadata:
   name: go-k8s-server # Name of the service
 spec:
-  type: NodePort # A NodePort service exposes the service on each Node's IP at the NodePort.
+  type: NodePort # Expose the service on a static port on every node in the cluster.
   selector:
-    app: go-k8s-server # Selects Pods with this label to route traffic to.
+    app: go-k8s-server # Selects Pods with this label
   ports:
-    # The service will listen on port 80 and forward traffic to the target port 8080 on the pods.
-    # The NodePort will be 30000, which can be accessed via the Node's IP address.
     - name: http
-      port: 80 # Port that the service will expose
-      targetPort: 8080 # Port on the Pod that the service will forward traffic to
-      nodePort: 30000 # Port on each Node that will route to the service
+      port: 80 # Listen on port 80
+      targetPort: 8080 # Forward traffic to port 8080 on the pods.
+      nodePort: 30000 # Define the port opened on the node.
