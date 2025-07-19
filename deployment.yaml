@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: go-k8s-server
-          image: go-k8s-server:latest # Image to run in the container.
+          image: go-server:latest # Image to run in the container.
           imagePullPolicy: IfNotPresent # Use local image if available.
           ports:
              - containerPort: 8080 # Port the container listens on.
